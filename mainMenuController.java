@@ -26,15 +26,53 @@ public class mainMenuController {
      * Mouse Event Handler when clicking Donut Button 
      @param event
      */
-    void donutMouseClick(MouseEvent event) {
+    void coffeeMouseClick(MouseEvent event) {
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("DonutOrder.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("CoffeeOrder.fxml"));
     		stage.setTitle("Donut Order Menu");
     		stage.setScene(new Scene(root, 500, 500));
     		stage.show();
     	} catch (Exception e) {
     		errorAlert.setHeaderText("Error");
     		errorAlert.setContentText("Your donut menu cannot be loaded. Please try again.");
+    		errorAlert.show();
+    	}
+    	
+    }
+    
+    @FXML
+    /** 
+     * Mouse Event Handler when clicking Donut Button 
+     @param event
+     */
+    void donutMouseClick(MouseEvent event) {
+    	try {
+    		Parent root = FXMLLoader.load(getClass().getResource("DonutOrder.fxml"));
+    		stage.setTitle("Coffee Order Menu");
+    		stage.setScene(new Scene(root, 500, 500));
+    		stage.show();
+    	} catch (Exception e) {
+    		errorAlert.setHeaderText("Error");
+    		errorAlert.setContentText("Your coffee menu cannot be loaded. Please try again.");
+    		errorAlert.show();
+    	}
+    	
+    }
+    
+    @FXML
+    /** 
+     * Mouse Event Handler when clicking Your Order Button 
+     @param event
+     */
+    void yourOrderClick(MouseEvent event) {
+    	try {
+    		Parent root = FXMLLoader.load(getClass().getResource("YourOrder.fxml"));
+    		stage.setTitle("Your Order Menu");
+    		stage.setScene(new Scene(root, 500, 500));
+    		stage.show();
+    	} catch (Exception e) {
+    		errorAlert.setHeaderText("Error");
+    		errorAlert.setContentText("Your order menu cannot be loaded. Please try again.");
     		errorAlert.show();
     	}
     	
