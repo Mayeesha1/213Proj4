@@ -29,12 +29,12 @@ public class mainMenuController {
     void coffeeMouseClick(MouseEvent event) {
     	try {
     		Parent root = FXMLLoader.load(getClass().getResource("CoffeeOrder.fxml"));
-    		stage.setTitle("Donut Order Menu");
+    		stage.setTitle("Coffee Order Menu");
     		stage.setScene(new Scene(root, 500, 500));
     		stage.show();
     	} catch (Exception e) {
     		errorAlert.setHeaderText("Error");
-    		errorAlert.setContentText("Your donut menu cannot be loaded. Please try again.");
+    		errorAlert.setContentText("Your coffee menu cannot be loaded. Please try again.");
     		errorAlert.show();
     	}
     	
@@ -48,13 +48,14 @@ public class mainMenuController {
     void donutMouseClick(MouseEvent event) {
     	try {
     		Parent root = FXMLLoader.load(getClass().getResource("DonutOrder.fxml"));
-    		stage.setTitle("Coffee Order Menu");
+    		stage.setTitle("Donut Order Menu");
     		stage.setScene(new Scene(root, 500, 500));
     		stage.show();
     	} catch (Exception e) {
     		errorAlert.setHeaderText("Error");
-    		errorAlert.setContentText("Your coffee menu cannot be loaded. Please try again.");
+    		errorAlert.setContentText("Your donut menu cannot be loaded. Please try again.");
     		errorAlert.show();
+    		System.out.println("your exception:" + e);
     	}
     	
     }
@@ -73,6 +74,25 @@ public class mainMenuController {
     	} catch (Exception e) {
     		errorAlert.setHeaderText("Error");
     		errorAlert.setContentText("Your order menu cannot be loaded. Please try again.");
+    		errorAlert.show();
+    	}
+    	
+    }
+    
+    @FXML
+    /** 
+    Mouse Event Handler when clicking Your Order Button 
+    @param event
+    */
+    void storeOrdersClick(MouseEvent event) {
+    	try {
+    		Parent root = FXMLLoader.load(getClass().getResource("StoreOrders.fxml"));
+    		stage.setTitle("Your Store Orders");
+    		stage.setScene(new Scene(root, 500, 500));
+    		stage.show();
+    	} catch (Exception e) {
+    		errorAlert.setHeaderText("Error");
+    		errorAlert.setContentText("Your store orders cannot be loaded. Please try again.");
     		errorAlert.show();
     	}
     	
