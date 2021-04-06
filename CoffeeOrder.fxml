@@ -21,7 +21,7 @@
                </font>
             </Text>
             <CheckBox fx:id="milkBox" layoutX="35.0" layoutY="174.0" mnemonicParsing="false" text="Milk" />
-            <CheckBox fx:id="creamBox" layoutX="36.0" layoutY="126.0" mnemonicParsing="false" text="Cream" />
+            <CheckBox fx:id="creamBox" layoutX="36.0" layoutY="126.0" mnemonicParsing="false" onMouseClicked="#creamCheckClick" text="Cream" />
             <CheckBox fx:id="syrupBox" layoutX="160.0" layoutY="126.0" mnemonicParsing="false" text="Syrup" />
             <CheckBox fx:id="caramelBox" layoutX="161.0" layoutY="174.0" mnemonicParsing="false" text="Caramel" />
             <CheckBox fx:id="whipCreamBox" layoutX="35.0" layoutY="229.0" mnemonicParsing="false" text="Whipped Cream" />
@@ -32,7 +32,7 @@
             </ImageView>
             <ComboBox fx:id="selectCoffeeType" layoutX="236.0" layoutY="225.0" onAction="#coffeeTypeAction" prefWidth="150.0" promptText="Type?" />
             <ComboBox fx:id="numberOfCoffee" layoutX="236.0" layoutY="292.0" onAction="#coffeeAmountAction" prefWidth="150.0" promptText="How many?" />
-            <TextField fx:id="coffeeTotalField" layoutX="237.0" layoutY="363.0" onAction="#coffeeTotalAction" />
+            <TextField fx:id="coffeeTotalField" layoutX="237.0" layoutY="363.0" />
             <Text layoutX="153.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: ">
                <font>
                   <Font size="14.0" />

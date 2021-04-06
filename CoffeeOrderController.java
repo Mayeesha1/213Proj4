@@ -70,7 +70,7 @@ public class CoffeeOrderController implements Initializable{
 	     @param event
 	     */
 	    void coffeeAmountAction(ActionEvent event) {
-		 double coffQuantity = numberOfCoffee.getValue();
+		 int coffQuantity = numberOfCoffee.getValue();
 		 this.coffQuantity = coffQuantity; 
 		 double dprice = Double.parseDouble(strPrice);
 		 double newDPrice = coffQuantity * dprice;
@@ -81,14 +81,17 @@ public class CoffeeOrderController implements Initializable{
 	 
 	 @FXML
 	    /** 
-	     Action Event Handler when getting the coffee quantity
+	     Mouse Event Handler when getting the coffee quantity
 	     @param event
 	     */
-	    void coffeeTotalAction(ActionEvent event) {
-		 System.out.println("im in coffee action total");
-		 CoffeeClass coffClasss = new CoffeeClass(coffeeSize);
+	    void creamCheckClick (MouseEvent event) {
+		 double dprice = Double.parseDouble(strPrice);
+		 double newDoublePrice = dprice + 0.50; 
+		 String newStrPrice = String.valueOf(newDoublePrice);
+		 coffeeTotalField.setText(newStrPrice);
 
 	    }
+	 
 	 
 	 
 	 
