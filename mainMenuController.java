@@ -22,8 +22,9 @@ public class mainMenuController {
 	
 	
 	private OrderClass order;
-	private double finalPrice; 
-	private int orderNumber;
+	private StoreOrders totalOrders;
+	private double finalPrice = 0; 
+	private int orderNumber = 0;
     @FXML
     private Button donutButton, coffeeButton, yourOrderButton, storeOrdersButton;
     @FXML
@@ -37,12 +38,10 @@ public class mainMenuController {
         this.order = new OrderClass(new ArrayList<>());
     }
     
-    public OrderClass getOrder(){
-        return order;
-    }
     
     public void addToOrder(OrderClass menuItems){
-        for(MenuItem item: menuItems.getItems()){
+    	System.out.println("im in the method");
+        /*for(MenuItem item: menuItems.getItems()){
             System.out.println("The item in add mainorder method is "+ item);
             order.add(item);
            if(item instanceof CoffeeClass){
@@ -53,8 +52,12 @@ public class mainMenuController {
            }
             order.setTotalPrice(finalPrice);
             System.out.println("printing the order" + order);
-        }
+        }*/
  
+    }
+    
+    public OrderClass getOrder(){
+        return order;
     }
     
     @FXML

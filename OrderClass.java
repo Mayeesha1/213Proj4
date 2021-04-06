@@ -14,6 +14,7 @@ public class OrderClass implements Customizable { //**order number and specific 
 	private int orderNumber;
 	private double subtotal;
 	private double salestax;
+	private MenuItem item;
 	private double total;
 	
 	public OrderClass() {
@@ -27,9 +28,9 @@ public class OrderClass implements Customizable { //**order number and specific 
 	to 0.
 	@param order number
 	*/
-	public OrderClass(ArrayList arraylist) {
-		itemList = new ArrayList<MenuItem>();
-		this.orderNumber = orderNumber;
+	public OrderClass(ArrayList<MenuItem> itemList) {
+		this.itemList = itemList;
+		this.orderNumber = 0;
 		subtotal = 0;
 		salestax = 0;
 		total = 0;
@@ -40,9 +41,9 @@ public class OrderClass implements Customizable { //**order number and specific 
 	@param menu item
 	*/
 	public boolean add(Object obj) {
-		if (obj instanceof MenuItem) {
-			MenuItem item = (MenuItem) obj;
-			itemList.add(item);
+		if (obj instanceof CoffeeClass || obj instanceof DonutClass) {
+			//MenuItem item = (MenuItem) obj;
+			itemList.add((MenuItem) obj);
 			return true;
 		}
 		return false;
@@ -109,4 +110,19 @@ public class OrderClass implements Customizable { //**order number and specific 
 		
 	}
 	
+	public ArrayList<MenuItem> getItem(){
+	      return itemList;
+	    }
+	
+	//public ArrayList<String> getList() {
+		  
+	//	  ArrayList<String> list = new ArrayList<>();
+		  
+	//        for (int i = 0; i < itemList.size(); i++) {
+	//           list.add(itemList.get(i).getItem());
+	//       }
+	//  @Override
+	//  public String toString(){
+	//      return "your order: " + this.itemList + this.total;
+	//        }
 }
