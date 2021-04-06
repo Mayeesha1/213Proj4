@@ -27,8 +27,8 @@
             <Text layoutX="67.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub Total:" />
             <TextField fx:id="donutTotalField" layoutX="175.0" layoutY="380.0" />
             <Button fx:id="addToOrder" layoutX="207.0" layoutY="442.0" mnemonicParsing="false" text="Add to Order" />
-            <ListView fx:id="displayListView" layoutX="327.0" layoutY="170.0" prefHeight="171.0" prefWidth="115.0" />
-            <ListView fx:id="selectListView" layoutX="48.0" layoutY="170.0" prefHeight="172.0" prefWidth="115.0" />
+            <ListView fx:id="displayListView" layoutX="327.0" layoutY="170.0" prefHeight="171.0" prefWidth="147.0" />
+            <ListView fx:id="selectListView" layoutX="48.0" layoutY="170.0" prefHeight="172.0" prefWidth="137.0" />
             <ImageView fitHeight="106.0" fitWidth="100.0" layoutX="358.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../4eda66be979539579d7b5d35d6a1cb70.jpg" />

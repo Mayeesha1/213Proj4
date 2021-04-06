@@ -6,11 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+This class is the main connection to the RU Cafe Menu. There are four options to click
+and see pop up windows containing information for different windows such as the donut 
+menu, the coffee menu, your orders, and store orders.
+@author mayeesha, rebecca
+*/
 public class mainMenuController {
 
     @FXML
@@ -23,7 +28,7 @@ public class mainMenuController {
     
     @FXML
     /** 
-     * Mouse Event Handler when clicking Donut Button 
+     * Mouse Event Handler when clicking Coffee Button 
      @param event
      */
     void coffeeMouseClick(MouseEvent event) {
@@ -95,7 +100,6 @@ public class mainMenuController {
     		errorAlert.setContentText("Your store orders cannot be loaded. Please try again.");
     		errorAlert.show();
     	}
-    	
     }
     
     

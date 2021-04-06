@@ -3,7 +3,6 @@ package application;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +14,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELEASE
+/**
+This class is the controller than implements the Coffee Menu GUI. The Coffee 
+Menu has options of adding add ins, choosing a type, choosing a quantity, and
+adding everything to the customers order. The total price is displayed depending
+on the changes made as soon as a customer starts their coffee order.
+@author mayeesha, rebecca
+*/
+public class CoffeeOrderController implements Initializable{
 	//FIGURE OUT PRICE CHANGES WHEN CHANGING MIND WHEN SELECTING TYPE AND QUANTITY
 	
 	private String coffeeSize; 
@@ -44,6 +50,11 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 protected ObservableList<Integer> numCoffItems = 
 	    		FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 	 
+	 /** 
+     This method initializes the combo boxes and list views with
+     items. 
+     @param location, resources
+     */
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
 		 numberOfCoffee.setItems(numCoffItems);
@@ -52,7 +63,7 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Action Event Handler when getting the coffee quantity
+	     Action Event Handler when handling the coffee size
 	     @param event
 	     */
 	    void coffeeTypeAction(ActionEvent event) {
@@ -74,9 +85,15 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 			this.coffeeSize = coffeeSize;	
 			CoffeeClass coffClass = new CoffeeClass(coffeeSize);
 			coffClass.itemPrice();
+			if(coffQuantity > 0) {
 			double finPrice = coffClass.getPrice() * coffQuantity;
 			coffeeTotalField.setText(decimal.format(finPrice));
 			this.finalPrice = finPrice; 
+			} else {
+			double finPrice = coffClass.getPrice();
+			coffeeTotalField.setText(decimal.format(finPrice));
+			this.finalPrice = finPrice; 
+			}
 		 }
 		 
 
@@ -99,7 +116,8 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Mouse Event Handler when getting the coffee quantity
+	     Mouse Event Handler when clicking or unclicking the cream
+	     add in option
 	     @param event
 	     */
 	    void creamCheckClick (MouseEvent event) {
@@ -117,7 +135,8 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Mouse Event Handler when getting the coffee quantity
+	     Mouse Event Handler when clicking or unclicking the syrup
+	     add in option
 	     @param event
 	     */
 	    void syrupCheckClick (MouseEvent event) {
@@ -135,7 +154,8 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Mouse Event Handler when getting the coffee quantity
+	     Mouse Event Handler when clicking or unclicking the milk
+	     add in option
 	     @param event
 	     */
 	    void milkCheckClick (MouseEvent event) {
@@ -153,7 +173,8 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Mouse Event Handler when getting the coffee quantity
+	     Mouse Event Handler when clicking or unclicking the caramel
+	     add in option
 	     @param event
 	     */
 	    void caramelCheckClick (MouseEvent event) {
@@ -170,7 +191,8 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	 
 	 @FXML
 	    /** 
-	     Mouse Event Handler when getting the coffee quantity
+	     Mouse Event Handler when clicking or unclicking the whippped
+	     cream add in option
 	     @param event
 	     */
 	    void whipCreamCheckClick (MouseEvent event) {
@@ -187,7 +209,7 @@ public class CoffeeOrderController implements Initializable{ //FIGURE OUT UNRELE
 	
 	 @FXML
 	    /** 
-	     Action Event Handler with Add To Order Button
+	     Action Event Handler for the Add To Order Button
 	     @param event
 	     */
 	    void addToOrder (ActionEvent event) {
