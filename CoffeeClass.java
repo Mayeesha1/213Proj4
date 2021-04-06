@@ -6,6 +6,14 @@ public class CoffeeClass extends MenuItem implements Customizable{
 
 	private String size;
 	private ArrayList<String> addins; //figure out addins/customizable
+	private int index;
+	
+	int getSize(ArrayList<MenuItem> arrList) {
+		int index = arrList.size();
+		this.index = index;
+		return index;
+	}
+
 	
 	public CoffeeClass(String size) {
 		this.size = size;
