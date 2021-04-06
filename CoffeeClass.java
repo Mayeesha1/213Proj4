@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
 The CoffeeClass is a subclass of the MenuItem class so it holds the same attributes as the 
@@ -13,6 +14,7 @@ public class CoffeeClass extends MenuItem implements Customizable {
 
 	private String size;
 	private ArrayList<String> addins; //figure out addins/customizable
+	private int quantity;
 	
 	/**
 	This constructor takes the size of the coffee and makes a CoffeeClass object
@@ -25,6 +27,12 @@ public class CoffeeClass extends MenuItem implements Customizable {
 		addins = new ArrayList<String>();
 	}
 	
+	public CoffeeClass(String coffeeSize, int quantity, ArrayList<String> addins, double price) {
+		this.size = coffeeSize;
+		this.quantity = quantity;
+		this.addins = addins;
+		this.setPrice(price);
+	}
 	/**
 	This method adds an add-in to the add-ins arraylist.
 	@param add-in
@@ -35,8 +43,14 @@ public class CoffeeClass extends MenuItem implements Customizable {
 			String addin = (String) obj;
 			addins.add(addin);
 			return true;
+
+
+		//	for (int number : numbers) {
+			//    System.out.print(number);
+			//}
 		}
 		return false;
+		
 	}
 	
 	/**

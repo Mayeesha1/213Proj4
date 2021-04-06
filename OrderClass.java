@@ -16,12 +16,18 @@ public class OrderClass implements Customizable { //**order number and specific 
 	private double salestax;
 	private double total;
 	
+	public OrderClass() {
+		
+		subtotal = 0;
+		salestax = 0;
+		total = 0;
+	}
 	/**
 	This constructor takes the order number and creates an arraylist of menu items and sets the totals
 	to 0.
 	@param order number
 	*/
-	public OrderClass(int orderNumber) {
+	public OrderClass(ArrayList arraylist) {
 		itemList = new ArrayList<MenuItem>();
 		this.orderNumber = orderNumber;
 		subtotal = 0;
@@ -97,6 +103,10 @@ public class OrderClass implements Customizable { //**order number and specific 
 		}
 		salestax = subtotal * 0.06625;
 		total = subtotal + salestax;
+	}
+	public void setTotalPrice(double finalPrice) {
+		this.total = finalPrice;
+		
 	}
 	
 }

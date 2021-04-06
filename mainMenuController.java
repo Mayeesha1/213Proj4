@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +19,11 @@ menu, the coffee menu, your orders, and store orders.
 @author mayeesha, rebecca
 */
 public class mainMenuController {
-
+	
+	
+	private OrderClass order;
+	private double finalPrice; 
+	private int orderNumber;
     @FXML
     private Button donutButton, coffeeButton, yourOrderButton, storeOrdersButton;
     @FXML
@@ -25,6 +31,31 @@ public class mainMenuController {
     
     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
     Stage stage = new Stage();
+    
+    
+    public mainMenuController() {
+        this.order = new OrderClass(new ArrayList<>());
+    }
+    
+    public OrderClass getOrder(){
+        return order;
+    }
+    
+    public void addToOrder(OrderClass menuItems){
+        for(MenuItem item: menuItems.getItems()){
+            System.out.println("The item in add mainorder method is "+ item);
+            order.add(item);
+           if(item instanceof CoffeeClass){
+              finalPrice = finalPrice +  ((CoffeeClass) item).getPrice();
+            }
+           if(item instanceof DonutClass){
+               finalPrice = finalPrice + ((DonutClass) item).getPrice();
+           }
+            order.setTotalPrice(finalPrice);
+            System.out.println("printing the order" + order);
+        }
+ 
+    }
     
     @FXML
     /** 

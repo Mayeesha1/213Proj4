@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,12 +24,16 @@ on the changes made as soon as a customer starts their coffee order.
 */
 public class CoffeeOrderController implements Initializable{
 	//FIGURE OUT PRICE CHANGES WHEN CHANGING MIND WHEN SELECTING TYPE AND QUANTITY
-	
+    public mainMenuController mMenuController;
 	private String coffeeSize; 
 	private int coffQuantity;
 	private double finalPrice;
 	private boolean alrSelected; 
 	DecimalFormat decimal = new DecimalFormat("0.00");
+	private CoffeeClass coffee = new CoffeeClass(coffeeSize);
+    protected ArrayList<MenuItem> coffeeOrderList = new ArrayList<MenuItem>();
+    protected CoffeeClass coffeeOrder;
+    
 	
 	@FXML
 	private CheckBox creamBox, syrupBox, milkBox, caramelBox, whipCreamBox;
@@ -49,6 +54,11 @@ public class CoffeeOrderController implements Initializable{
 	 protected ComboBox <Integer> numberOfCoffee;
 	 protected ObservableList<Integer> numCoffItems = 
 	    		FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+	 
+
+	 public void setMainMenu(mainMenuController controller){
+	 mMenuController = controller;
+	 }
 	 
 	 /** 
      This method initializes the combo boxes and list views with
@@ -72,7 +82,6 @@ public class CoffeeOrderController implements Initializable{
 		 this.coffeeSize = coffeeSize;	
 		 CoffeeClass coffClass = new CoffeeClass(coffeeSize);
 		 coffClass.itemPrice();
-		 //String strPrice = String.valueOf(coffClass.getPrice());
 		 double finPrice = coffClass.getPrice() + finalPrice;
 		 coffeeTotalField.setText(decimal.format(finPrice));
 		 this.finalPrice = finPrice; 
@@ -124,11 +133,13 @@ public class CoffeeOrderController implements Initializable{
 		 if(creamBox.isSelected()) {
 		 double newDoublePrice = finalPrice + 0.20; 
 		 coffeeTotalField.setText(decimal.format(newDoublePrice));
-		 this.finalPrice = newDoublePrice;
+		 this.finalPrice = newDoublePrice;;
+		 coffee.add("Cream");
 		 } else {
 			 double newDoublePrice = finalPrice - 0.20; 
 			 coffeeTotalField.setText(decimal.format(newDoublePrice));
 			 this.finalPrice = newDoublePrice;
+			 coffee.remove("Cream");
 		 }
 		 
 	    }
@@ -144,10 +155,12 @@ public class CoffeeOrderController implements Initializable{
 		 double newDoublePrice = finalPrice + 0.20; 
 		 coffeeTotalField.setText(decimal.format(newDoublePrice));
 		 this.finalPrice = newDoublePrice;
+		 coffee.add("Syrup");
 		 } else {
 			 double newDoublePrice = finalPrice - 0.20; 
 			 coffeeTotalField.setText(decimal.format(newDoublePrice));
 			 this.finalPrice = newDoublePrice;
+			 coffee.remove("Syrup");
 		 }
 		 
 	    }
@@ -163,10 +176,12 @@ public class CoffeeOrderController implements Initializable{
 		 double newDoublePrice = finalPrice + 0.20; 
 		 coffeeTotalField.setText(decimal.format(newDoublePrice));
 		 this.finalPrice = newDoublePrice;
+		 coffee.add("Milk");
 		 } else {
 			 double newDoublePrice = finalPrice - 0.20; 
 			 coffeeTotalField.setText(decimal.format(newDoublePrice));
 			 this.finalPrice = newDoublePrice;
+			 coffee.remove("Milk");
 		 }
 	    }
 	 
@@ -182,10 +197,12 @@ public class CoffeeOrderController implements Initializable{
 		 double newDoublePrice = finalPrice + 0.20; 
 		 coffeeTotalField.setText(decimal.format(newDoublePrice));
 		 this.finalPrice = newDoublePrice;
+		 coffee.add("Caramel");
 		 } else {
 			 double newDoublePrice = finalPrice - 0.20; 
 			 coffeeTotalField.setText(decimal.format(newDoublePrice));
 			 this.finalPrice = newDoublePrice;
+			 coffee.remove("Caramel");
 		 }
 	    }
 	 
@@ -200,10 +217,12 @@ public class CoffeeOrderController implements Initializable{
 		 double newDoublePrice = finalPrice + 0.20; 
 		 coffeeTotalField.setText(decimal.format(newDoublePrice));
 		 this.finalPrice = newDoublePrice;
+		 coffee.add("Whipped Cream");
 		 } else {
 			 double newDoublePrice = finalPrice - 0.20; 
 			 coffeeTotalField.setText(decimal.format(newDoublePrice));
 			 this.finalPrice = newDoublePrice;
+			 coffee.remove("Whipped Cream");
 		 }
 	    }
 	
@@ -212,8 +231,16 @@ public class CoffeeOrderController implements Initializable{
 	     Action Event Handler for the Add To Order Button
 	     @param event
 	     */
-	    void addToOrder (ActionEvent event) {
-	
+	    void addOrderButton (ActionEvent event) {
+		ArrayList<String> addins =  coffee.getAddins();
+		CoffeeClass coffeeOrder = new CoffeeClass(coffeeSize, coffQuantity, addins, finalPrice);
+		ArrayList<MenuItem> coffeeOrdered = new ArrayList<>();
+		coffeeOrdered.add(coffeeOrder);
+	    OrderClass order = new OrderClass(coffeeOrdered);
+	    mMenuController.addToOrder(order);
+		coffeeTotalField.setText("Order Added!");
+		
+
 	    }
 
 }
