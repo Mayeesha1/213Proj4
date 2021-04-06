@@ -32,36 +32,9 @@ public class MenuItem {
 	the price of a menu item. 
 	*/
 	public void itemPrice() {
+		
 	}
 	
-	//****idk if need an equals or toString method??
 	
-	/**
-	This method checks if employee objects are equal and already in the database by comparing 
-	one employee's profile with another, and returns boolean values accordingly.
-	@param obj of type employee to check with another employee object
-	@return true if employees are equal, false if not
-	*/
-	/*
-	@Override
-	public boolean equals(Object obj) {
-		if(obj instanceof Employee) {
-			Employee employee=(Employee) obj;
-			return employee.profile.equals(this.profile);
-		}
-		return false;
-	}
-	*/
-	
-	/**
-	The method creates a string description of an employee and refers to the profile toString 
-	method to apply polymorphism in order to to print the output without repetitive code
-	@return string description
-	*/
-	/*
-	@Override  
-	public String toString() { 
-		return profile.toString();
-	} 
-	*/
+
 }

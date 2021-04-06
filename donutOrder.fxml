@@ -20,8 +20,8 @@
                   <Font name="Bauhaus 93" size="24.0" />
                </font>
             </Text>
-            <ComboBox fx:id="selectDonutType" layoutX="34.0" layoutY="69.0" onMouseClicked="#donutMouseClicked" prefHeight="25.0" prefWidth="247.0" promptText="Select Type of Donut" />
-            <ComboBox fx:id="numberOfDonut" layoutX="35.0" layoutY="119.0" onMouseClicked="#numberDonutClicked" prefHeight="25.0" prefWidth="246.0" promptText="How Many?" />
+            <ComboBox fx:id="selectDonutType" layoutX="34.0" layoutY="69.0" prefHeight="25.0" prefWidth="247.0" promptText="Select Type of Donut" />
+            <ComboBox fx:id="numberOfDonut" layoutX="35.0" layoutY="119.0" prefHeight="25.0" prefWidth="246.0" promptText="How Many?" />
             <Button layoutX="225.0" layoutY="217.0" mnemonicParsing="false" text="&gt;&gt;" />
             <Button layoutX="225.0" layoutY="283.0" mnemonicParsing="false" text="&lt;&lt;" />
             <Text layoutX="67.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub Total:" />
