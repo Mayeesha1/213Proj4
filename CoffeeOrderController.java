@@ -54,7 +54,7 @@ public class CoffeeOrderController implements Initializable{
 	 protected ObservableList<Integer> numCoffItems = 
 	    		FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-
+	 
 	 public void setMainMenu(mainMenuController controller){
 	 mMenuController = controller;
 	 }

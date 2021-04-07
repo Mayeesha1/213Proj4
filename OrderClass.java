@@ -20,28 +20,31 @@ public class OrderClass implements Customizable { //**order number and specific 
 	private MenuItem item;
 	private double total;
 	
-	public OrderClass() {
-		
-		subtotal = 0;
-		salestax = 0;
-		total = 0;
-	}
 	/**
-	This constructor takes the order number and creates an arraylist of menu items and sets the totals
-	to 0.
-	@param order number
+	This is a constructor method setting everything to default
 	*/
-	public OrderClass(ArrayList<MenuItem> itemList) {
-		this.itemList = itemList;
-		this.orderNumber = 0;
+	public OrderClass() {
 		subtotal = 0;
 		salestax = 0;
 		total = 0;
 	}
 	
 	/**
+	This constructor takes the order number and creates an arraylist of menu items and sets the totals
+	to 0.
+	@param itemList
+	*/
+	public OrderClass(ArrayList<MenuItem> itemList) {
+		this.itemList = itemList;
+		//this.orderNumber = 0;
+		//subtotal = 0;
+		//salestax = 0;
+		//total = 0;
+	}
+	
+	/**
 	This method adds menu items to the arraylist for the order.
-	@param menu item
+	@param obj
 	*/
 	public boolean add(Object obj) {
 		if (obj instanceof CoffeeClass || obj instanceof DonutClass) {
@@ -54,7 +57,7 @@ public class OrderClass implements Customizable { //**order number and specific 
 	
 	/**
 	This method removes menu items from the arraylist for the order.
-	@param menu item
+	@param obj
 	*/
 	public boolean remove(Object obj) {
 		if (obj instanceof MenuItem) {
@@ -68,7 +71,7 @@ public class OrderClass implements Customizable { //**order number and specific 
 	/**
 	This method returns the arraylist of menu items so menu items can be added, removed, and
 	retrieved from the arraylist.
-	@return arraylist of menu items for the order
+	@return itemList
 	*/
 	public ArrayList<MenuItem> getItems() {
 		return itemList;
@@ -84,18 +87,27 @@ public class OrderClass implements Customizable { //**order number and specific 
 		salestax = subtotal * 0.06625;
 		total = subtotal + salestax;
 	}
+	
+	/*
+	This method sets the total price
+	@param finalPrice
+	*/
 	public void setTotalPrice(double finalPrice) {
 		this.total = finalPrice;
 		
 	}
 	
+	/*
+	This returns itemList arrayList
+	@param itemList
+	*/
 	public ArrayList<MenuItem> getItem(){
 	      return itemList;
 	    }
 	
 	/**
 	Getter method for the order number so the value can be used in other classes.
-	@return order number
+	@return orderNumber
 	*/
 	public int getOrderNumber() { 
 		return orderNumber;
@@ -103,7 +115,7 @@ public class OrderClass implements Customizable { //**order number and specific 
 	
 	/**
 	Setter method for the order number so the value can be set from other classes.
-	@return order number
+	@param orderNumber
 	*/
 	public void setOrderNumber(int orderNumber) { 
 		this.orderNumber = orderNumber;
@@ -119,7 +131,7 @@ public class OrderClass implements Customizable { //**order number and specific 
 	
 	/**
 	Getter method for the sales tax on an order so the value can be used in other classes.
-	@return tax on order
+	@return salestax
 	*/
 	public double getSalestax() { 
 		return salestax;
@@ -139,11 +151,11 @@ public class OrderClass implements Customizable { //**order number and specific 
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	
 	/**
 	The method exports the order to a path of a file to help it be saved/exported to that file.
 	@param path of the file
 	*/
-	
 	public void exportOrder(String path) {
 		try {
 			FileWriter write = new FileWriter(path);

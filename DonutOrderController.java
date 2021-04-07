@@ -15,7 +15,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-//import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -127,7 +126,7 @@ public class DonutOrderController implements Initializable{
 	 @FXML
 	    /** 
 	     Action Event Handler for the button that adds a 
-	     donut flavor order to the list.
+	     donut flavor
 	     @param event
 	     */
 	    void addDonutButtonAction(ActionEvent event) {
@@ -140,7 +139,7 @@ public class DonutOrderController implements Initializable{
 	 @FXML
 	    /** 
 	     Action Event Handler for the button that removes a 
-	     donut flavor order to the list.
+	     donut flavor
 	     @param event
 	     */
 	    void removeDonutButtonMouse(MouseEvent event) {
@@ -152,21 +151,13 @@ public class DonutOrderController implements Initializable{
 	 
 	 @FXML
 	    /** 
-	     Action Event Handler for the button that removes a 
-	     donut flavor order to the list.
+	     Action Event Handler for the button that adds 
+	     the donut order the orders.
 	     @param event
 	     */
 	    void addToOrderClick(MouseEvent event) {
 		 
 
-	    }
-	 
-	 
-	 
-	 
-	 
-	  
-	
-	 
+	    }	
 	 
 }

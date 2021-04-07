@@ -20,7 +20,7 @@ public class StoreOrders implements Customizable { //**order number and specific
 	
 	/**
 	This method adds an order to the list of orders.
-	@param order
+	@param obj order
 	*/
 	public boolean add(Object obj) {
 		if (obj instanceof OrderClass) {
@@ -33,7 +33,7 @@ public class StoreOrders implements Customizable { //**order number and specific
 	
 	/**
 	This method removes an order from the list of orders.
-	@param order
+	@param obj order
 	*/
 	public boolean remove(Object obj) {
 		if (obj instanceof OrderClass) {
@@ -46,7 +46,7 @@ public class StoreOrders implements Customizable { //**order number and specific
 	
 	/**
 	This method returns the arraylist of orders so it can be used in other classes.
-	@return arraylist of orders
+	@return orderList of orders
 	*/
 	public ArrayList<OrderClass> getOrderList() {
 		return orderList;

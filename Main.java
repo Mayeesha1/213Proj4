@@ -6,7 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
-
+/**
+This is the main class where the Application is extended from. Everything connects together through
+this class. 
+@author mayeesha, rebecca
+*/
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {

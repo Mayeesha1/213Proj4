@@ -1,7 +1,7 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 /**
 The CoffeeClass is a subclass of the MenuItem class so it holds the same attributes as the 
@@ -27,6 +27,10 @@ public class CoffeeClass extends MenuItem implements Customizable {
 		addins = new ArrayList<String>();
 	}
 	
+	/**
+	This constructor for coffee order object
+	@param coffeeSize, quantity, addins, price
+	*/
 	public CoffeeClass(String coffeeSize, int quantity, ArrayList<String> addins, double price) {
 		this.size = coffeeSize;
 		this.quantity = quantity;
@@ -36,7 +40,7 @@ public class CoffeeClass extends MenuItem implements Customizable {
 	
 	/**
 	This method adds an add-in to the add-ins arraylist.
-	@param add-in
+	@param obj
 	@return true if obj was a String add-in, false if not
 	*/
 	public boolean add(Object obj) { 
@@ -44,19 +48,13 @@ public class CoffeeClass extends MenuItem implements Customizable {
 			String addin = (String) obj;
 			addins.add(addin);
 			return true;
-
-
-		//	for (int number : numbers) {
-			//    System.out.print(number);
-			//}
 		}
 		return false;
-		
 	}
 	
 	/**
 	This method removes an add-in from the add-ins arraylist.
-	@param add-in
+	@param obj
 	@return true if obj was a String add-in, false if not
 	*/
 	public boolean remove(Object obj) {
@@ -87,7 +85,7 @@ public class CoffeeClass extends MenuItem implements Customizable {
 	/**
 	This method returns the arraylist of add-ins so add-ins can be added, removed, and retrieved
 	from the arraylist.
-	@return arraylist of add-ins
+	@return addins
 	*/
 	public ArrayList<String> getAddins() { //arraylist of it and then further get an addin in arraylist. also can set an addin in arraylist
 		return addins;

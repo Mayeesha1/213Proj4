@@ -22,6 +22,9 @@ public class mainMenuController {
 	
 	
 	private OrderClass order;
+	ArrayList<MenuItem> itemlist;
+	private OrderClass currOrder = new OrderClass(itemlist);
+	private OrderClass tempOrder;
 	private StoreOrders totalOrders;
 	protected double finalPrice = 0; 
 	protected int orderNumber = 0;
@@ -35,34 +38,53 @@ public class mainMenuController {
 	    Stage stage = new Stage();
 	    
 	    
-	    
+    /** 
+ 	constructor to initialize arraylist 
+	*/    
 	public mainMenuController() {
 	  this.order = new OrderClass(new ArrayList<>());
 	}
 
-    
+	 /** 
+ 	adds the orders to the order menu. 
+	*/ 
     public void addToOrder(OrderClass menuItems){
+    	this.currOrder = order;
         for(MenuItem item: menuItems.getItems()){
-            System.out.println("The item in add mainorder method is "+ item);
-            order.add(item);
+            currOrder.add(item);
            if(item instanceof CoffeeClass){
               finalPrice = finalPrice +  ((CoffeeClass) item).getPrice();
             }
            if(item instanceof DonutClass){
                finalPrice = finalPrice + ((DonutClass) item).getPrice();
            }
-            order.setTotalPrice(finalPrice);
+            currOrder.setTotalPrice(finalPrice);
         }
     }
     
+    /**
+   	This method gets the final price
+   	@return order
+   	*/
+       public double getfinalPrice(){
+           return finalPrice;
+       }
+       
+    /**
+	This method gets the order.
+	@return order
+	*/
     public OrderClass getOrder(){
-        return order;
+        return currOrder;
     }
     
+    /**
+   	This method places the order.
+   	*/
     public void placeOrder(){
-        totalOrders.add(order);
-        order.setIncrement();
-        this.order = new OrderClass(new ArrayList<>());
+        totalOrders.add(currOrder);
+        currOrder.setIncrement();
+        this.currOrder = new OrderClass(new ArrayList<>());
     }
     
     
@@ -100,7 +122,6 @@ public class mainMenuController {
     		errorAlert.setHeaderText("Error");
     		errorAlert.setContentText("Your donut menu cannot be loaded. Please try again.");
     		errorAlert.show();
-    		System.out.println("your exception:" + e);
     	}
     	
     }
@@ -120,7 +141,6 @@ public class mainMenuController {
     		errorAlert.setHeaderText("Error");
     		errorAlert.setContentText("Your order menu cannot be loaded. Please try again.");
     		errorAlert.show();
-    		System.out.println("your exception:" + e);
     	}
     	
     }

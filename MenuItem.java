@@ -28,7 +28,7 @@ public class MenuItem {
 	
 	/**
 	Setter method for the quantity of an item so the value can be set in other classes
-	@param item quantity
+	@param quantity
 	*/
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
@@ -44,7 +44,7 @@ public class MenuItem {
 	
 	/**
 	Setter method for the price of an item so the value can be set in other classes
-	@param item price
+	@param price
 	*/
 	public void setPrice(double price) {
 		this.price = price;

@@ -14,12 +14,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField; //*******just copied imports from coffeeorder so fix later
+import javafx.scene.control.TextField; 
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
+/**
+This class is the controller that implements the Store Orders and shows
+them on the portal.
+@author mayeesha, rebecca
+*/
 public class StoreOrdersController implements Initializable { 
 	
 	private int orderNumber;
@@ -55,8 +60,8 @@ public class StoreOrdersController implements Initializable {
 		 displayListView.setItems(displayOrdersList);
 	 }
 	 
-	 @FXML
-	 void orderNumberList(ActionEvent event) {
+	 //@FXML
+	 /*void orderNumberList(ActionEvent event) {
 		 try {
 			 for (int i = 0; i < orders.getOrderList().size(); i++) {
 				 ordNumList.add(orders.getOrderList().get(i).getOrderNumber());
@@ -65,73 +70,6 @@ public class StoreOrdersController implements Initializable {
 		 catch (Exception e) {
 			 //idk
 		 }
-	 }
-	 
-	 @FXML
-	    /** 
-	     Action Event Handler when choosing an order number to look at.
-	     @param event
-	     */
-	    void orderNumChosen(ActionEvent event) {
-		 try {
-		 int orderNumber = orderNum.getValue();
-		 this.orderNumber = orderNumber; 
-		 for (int i = 0; i < orders.getOrderList().size(); i++) {
-			 if (orders.getOrderList().get(i).getOrderNumber() == orderNumber) {
-				 order = orders.getOrderList().get(i);
-			 }
-		 }
-		total = order.getTotal();
-		orderTotalField.setText(decimal.format(total));
-		 for (int j = 0; j < order.getItems().size(); j++) {
-			 if (order.getItems().get(j) instanceof DonutClass) {
-				 DonutClass don = (DonutClass) order.getItems().get(j);
-				 displayList.add(don.toString());
-			 }
-			 else if (order.getItems().get(j) instanceof CoffeeClass) {
-				 CoffeeClass cof = (CoffeeClass) order.getItems().get(j);
-				 displayList.add(cof.toString());
-			 }
-		}
-		 }
-		 catch (Exception e) {
-			 //idk
-		 }
+	 }*/
 
-	    } 
-	 
-	 @FXML
-	 /**
-	 Action Event Handler when cancelling an order.
-	 */
-	 void cancelOrder(ActionEvent event) {
-		 try {
-			 orders.remove(order);
-		 }
-		 catch (Exception e) {
-			 System.out.println("Error!");
-		 }
-	 }
-	 
-	 @FXML
-	    /**
-	    The method exports the order to the file chosen for the data to be saved to after the Export button is pressed.
-	    @param event of button pressed
-	    */
-	    void exportFile(ActionEvent event) {
-	    	try {
-	    		FileChooser chooser = new FileChooser();
-	    		chooser.setTitle("Export File");
-	    		chooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
-	    				new ExtensionFilter("All Files", "*.*"));
-	    		Stage stage = new Stage();
-	    		File file = chooser.showSaveDialog(stage);
-	    		String filePath = file.getAbsolutePath();
-	    		String fileName = file.getName();
-	    		order.exportOrder(filePath);
-	    	}
-	    	catch (Exception e) {
-	    		//messageArea2.append("Error. \n");
-	    	}
-	    }
 }

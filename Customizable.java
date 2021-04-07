@@ -9,13 +9,13 @@ public interface Customizable {
 	
 	/**
 	This method would add an object.
-	@param object
+	@param obj
 	*/
 	boolean add(Object obj);
 	
 	/**
 	This method would remove an object.
-	@param object
+	@param obj
 	*/
 	boolean remove(Object obj);
 
