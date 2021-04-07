@@ -57,5 +57,14 @@ public class MenuItem {
 	public void itemPrice() {
 	}
 	
+	/**
+	The method creates a string description of a menu item.
+	@return string description
+	*/
+	@Override
+	public String toString() { 
+		return "";
+	}
+	
 
 }

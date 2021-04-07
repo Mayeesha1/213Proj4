@@ -33,6 +33,7 @@ public class CoffeeClass extends MenuItem implements Customizable {
 		this.addins = addins;
 		this.setPrice(price);
 	}
+	
 	/**
 	This method adds an add-in to the add-ins arraylist.
 	@param add-in
@@ -113,4 +114,17 @@ public class CoffeeClass extends MenuItem implements Customizable {
 		//setPrice(getPrice() + addins.size() * 0.20);
 		//setPrice(getPrice() * getQuantity());
 	}
+	
+	/**
+	The method creates a string description of a coffee object.
+	*/
+	@Override
+	public String toString() { 
+		String addinDisp = "";
+		for (int k = 0; k < addins.size()-1; k++) {
+			addinDisp = addinDisp + addins.get(k) + ",";
+		}
+		return "Coffee" + String.valueOf("(" + quantity + ") " + size + " [" + addinDisp + addins.get(addins.size()-1) + "]");
+	}
+	
 }

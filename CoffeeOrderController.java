@@ -23,15 +23,15 @@ on the changes made as soon as a customer starts their coffee order.
 @author mayeesha, rebecca
 */
 public class CoffeeOrderController implements Initializable{
-	//FIGURE OUT PRICE CHANGES WHEN CHANGING MIND WHEN SELECTING TYPE AND QUANTITY
 	private String coffeeSize; 
 	private int coffQuantity;
 	private double finalPrice;
 	private boolean alrSelected; 
 	DecimalFormat decimal = new DecimalFormat("0.00");
 	private CoffeeClass coffee = new CoffeeClass(coffeeSize);
-    protected ArrayList<MenuItem> coffeeOrderList = new ArrayList<MenuItem>();
+    //protected ArrayList<MenuItem> coffeeOrderList = new ArrayList<MenuItem>();
     protected CoffeeClass coffeeOrder;
+    mainMenuController mMenuController = new mainMenuController();
     
 	
 	@FXML
@@ -53,7 +53,6 @@ public class CoffeeOrderController implements Initializable{
 	 protected ComboBox <Integer> numberOfCoffee;
 	 protected ObservableList<Integer> numCoffItems = 
 	    		FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-	 public mainMenuController mMenuController;
 
 
 	 public void setMainMenu(mainMenuController controller){
@@ -236,9 +235,7 @@ public class CoffeeOrderController implements Initializable{
 		coffeeOrder = new CoffeeClass(coffeeSize, coffQuantity, addins, finalPrice);
 		ArrayList<MenuItem> coffeeOrdered = new ArrayList<>();
 		coffeeOrdered.add(coffeeOrder);
-		
 	    OrderClass order = new OrderClass(coffeeOrdered);
-
 	    mMenuController.addToOrder(order);
 		coffeeTotalField.setText("Order Added!");
 		

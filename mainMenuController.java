@@ -23,25 +23,26 @@ public class mainMenuController {
 	
 	private OrderClass order;
 	private StoreOrders totalOrders;
-	private double finalPrice = 0; 
-	private int orderNumber = 0;
-    @FXML
-    private Button donutButton, coffeeButton, yourOrderButton, storeOrdersButton;
-    @FXML
-    private Text orderDonut, orderCoffee;
-    
-    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-    Stage stage = new Stage();
-    
-    
-    public mainMenuController() {
-        this.order = new OrderClass(new ArrayList<>());
-    }
-    
+	protected double finalPrice = 0; 
+	protected int orderNumber = 0;
+	
+	 @FXML
+	    private Button donutButton, coffeeButton, yourOrderButton, storeOrdersButton;
+	    @FXML
+	    private Text orderDonut, orderCoffee;
+	
+	 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+	    Stage stage = new Stage();
+	    
+	    
+	    
+	public mainMenuController() {
+	  this.order = new OrderClass(new ArrayList<>());
+	}
+
     
     public void addToOrder(OrderClass menuItems){
-    	System.out.println("im in the method");
-        /*for(MenuItem item: menuItems.getItems()){
+        for(MenuItem item: menuItems.getItems()){
             System.out.println("The item in add mainorder method is "+ item);
             order.add(item);
            if(item instanceof CoffeeClass){
@@ -51,14 +52,19 @@ public class mainMenuController {
                finalPrice = finalPrice + ((DonutClass) item).getPrice();
            }
             order.setTotalPrice(finalPrice);
-            System.out.println("printing the order" + order);
-        }*/
- 
+        }
     }
     
     public OrderClass getOrder(){
         return order;
     }
+    
+    public void placeOrder(){
+        totalOrders.add(order);
+        order.setIncrement();
+        this.order = new OrderClass(new ArrayList<>());
+    }
+    
     
     @FXML
     /** 
@@ -114,6 +120,7 @@ public class mainMenuController {
     		errorAlert.setHeaderText("Error");
     		errorAlert.setContentText("Your order menu cannot be loaded. Please try again.");
     		errorAlert.show();
+    		System.out.println("your exception:" + e);
     	}
     	
     }

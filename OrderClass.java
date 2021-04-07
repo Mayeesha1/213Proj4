@@ -1,5 +1,8 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList; //**says quantity so is it like 2 of the exact same coffee?? then have to equal and add to quantity
 
 /**
@@ -71,6 +74,41 @@ public class OrderClass implements Customizable { //**order number and specific 
 		return itemList;
 	}
 	
+	/*
+	This method calculates the subtotal, sales tax, and total for an order.
+	*/
+	public void calculateTotal() { //might have to round to two decimal places somehow
+		for (int i = 0; i < itemList.size(); i++) {
+			subtotal += itemList.get(i).getPrice();
+		}
+		salestax = subtotal * 0.06625;
+		total = subtotal + salestax;
+	}
+	public void setTotalPrice(double finalPrice) {
+		this.total = finalPrice;
+		
+	}
+	
+	public ArrayList<MenuItem> getItem(){
+	      return itemList;
+	    }
+	
+	/**
+	Getter method for the order number so the value can be used in other classes.
+	@return order number
+	*/
+	public int getOrderNumber() { 
+		return orderNumber;
+	}
+	
+	/**
+	Setter method for the order number so the value can be set from other classes.
+	@return order number
+	*/
+	public void setOrderNumber(int orderNumber) { 
+		this.orderNumber = orderNumber;
+	}
+	
 	/**
 	Getter method for the subtotal of an order so the value can be used in other classes.
 	@return subtotal of order
@@ -95,34 +133,38 @@ public class OrderClass implements Customizable { //**order number and specific 
 		return total;
 	}
 	
-	/*
-	This method calculates the subtotal, sales tax, and total for an order.
+	/**
+	Setter method for the total of an order so the value can be set from other classes.
 	*/
-	public void calculateTotal() { //might have to round to two decimal places somehow
-		for (int i = 0; i < itemList.size(); i++) {
-			subtotal += itemList.get(i).getPrice();
-		}
-		salestax = subtotal * 0.06625;
-		total = subtotal + salestax;
+	public void setTotal(double total) {
+		this.total = total;
 	}
-	public void setTotalPrice(double finalPrice) {
-		this.total = finalPrice;
+	/**
+	The method exports the order to a path of a file to help it be saved/exported to that file.
+	@param path of the file
+	*/
+	
+	public void exportOrder(String path) {
+		try {
+			FileWriter write = new FileWriter(path);
+			BufferedWriter writer = new BufferedWriter(write);
+			for (int i = 0; i < itemList.size(); i++) {
+				 if (itemList.get(i) instanceof DonutClass) {
+					 DonutClass don = (DonutClass) itemList.get(i);
+					 writer.append(don.toString());
+				 }
+				 else if (itemList.get(i) instanceof CoffeeClass) {
+					 CoffeeClass cof = (CoffeeClass) itemList.get(i);
+					 writer.append(cof.toString());
+				 }
+			 }
+			writer.close();
+		}
+		catch (IOException e) {
+		}
+	}
+	public void setIncrement() {
+		
 		
 	}
-	
-	public ArrayList<MenuItem> getItem(){
-	      return itemList;
-	    }
-	
-	//public ArrayList<String> getList() {
-		  
-	//	  ArrayList<String> list = new ArrayList<>();
-		  
-	//        for (int i = 0; i < itemList.size(); i++) {
-	//           list.add(itemList.get(i).getItem());
-	//       }
-	//  @Override
-	//  public String toString(){
-	//      return "your order: " + this.itemList + this.total;
-	//        }
 }

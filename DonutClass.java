@@ -7,6 +7,7 @@ MenuItem class. There is an additional instance variable for type of donut.
 */
 public class DonutClass extends MenuItem {
 	private String donutType;
+	private int donQuantity;
 	
 	/**
 	This constructor takes the type of donut and sets the donutType as that type.
@@ -48,4 +49,13 @@ public class DonutClass extends MenuItem {
 		}
 		//setPrice(getPrice() * getQuantity());
 	}
+	
+	/**
+	The method creates a string description of a donut object.
+	*/
+	@Override
+	public String toString() { 
+		return donutType + "(" + String.valueOf(getQuantity()) + ")";
+	}
+	
 }
